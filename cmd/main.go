@@ -4,8 +4,10 @@ import (
 	"fmt"
 	"github.com/Partizan-LERO/dsa/internal/ds/bst"
 	"github.com/Partizan-LERO/dsa/internal/ds/graphs"
+	"github.com/Partizan-LERO/dsa/internal/ds/hashmap"
 	"github.com/Partizan-LERO/dsa/internal/ds/stack_arr"
 	"github.com/Partizan-LERO/dsa/internal/ds/trie"
+	"github.com/Partizan-LERO/dsa/internal/sorting"
 	add_two_numbers_as_a_linked_list "github.com/Partizan-LERO/dsa/internal/tasks/add-two-numbers-as-a-linked-list"
 	first_and_last_indices_of_an_element_in_a_sorted_array "github.com/Partizan-LERO/dsa/internal/tasks/first-and-last-indices-of-an-element-in-a-sorted-array"
 	permutations2 "github.com/Partizan-LERO/dsa/internal/tasks/permutations"
@@ -130,7 +132,7 @@ func testBST() {
 	tree.Insert(101)
 	tree.Insert(102)
 	tree.Insert(95)
-	fmt.Println(tree)
+	tree.PrintPreorder()
 
 	fmt.Println(tree.Search(100))
 	fmt.Println(tree.Search(101))
@@ -154,6 +156,40 @@ func testTrie() {
 
 }
 
+func testSelectionSort() {
+	arr := []int{64, 12, 25, 12, 22, 11}
+	fmt.Println(sorting.SelectionSort(arr))
+}
+
+func testBubbleSort() {
+	arr := []int{64, 12, 25, 12, 22, 11}
+	fmt.Println(sorting.BubbleSort(arr))
+}
+
+func testInsertionSort() {
+	arr := []int{64, 12, 25, 12, 22, 11}
+	fmt.Println(sorting.InsertionSort(arr))
+}
+
+func testHashMap() {
+	h := hashmap.InitHashMap(2)
+
+	h.Set("name", "Sergei")
+	h.Set("same", "YES")
+	fmt.Println(h.Get("name"))
+	fmt.Println(h.Get("same"))
+	h.Delete("name")
+	fmt.Println("name", h.Get("name"))
+	h.Delete("name")
+
+	fmt.Println(h.Get("age"))
+	h.Set("age", "30")
+	fmt.Println(h.Get("age"))
+
+	h.Set("same", "False")
+	fmt.Println(h.Get("same"))
+}
+
 func main() {
-	testTrie()
+	testBST()
 }

@@ -1,5 +1,7 @@
 package bst
 
+import "fmt"
+
 type Node struct {
 	Key   int
 	Left  *Node
@@ -39,3 +41,29 @@ func (n *Node) Search(k int) bool {
 
 	return true
 }
+
+func (n *Node) PrintPreorder() {
+	if n != nil {
+		fmt.Println(n.Key)
+		n.Left.PrintInorder()
+		n.Right.PrintInorder()
+	}
+}
+
+func (n *Node) PrintInorder() {
+	if n != nil {
+		n.Left.PrintInorder()
+		fmt.Println(n.Key)
+		n.Right.PrintInorder()
+	}
+}
+
+func (n *Node) PrintPostorder() {
+	if n != nil {
+		n.Left.PrintInorder()
+		n.Right.PrintInorder()
+		fmt.Println(n.Key)
+	}
+}
+
+
