@@ -5,6 +5,7 @@ import (
 	"github.com/Partizan-LERO/dsa/internal/ds/bst"
 	"github.com/Partizan-LERO/dsa/internal/ds/graphs"
 	"github.com/Partizan-LERO/dsa/internal/ds/hashmap"
+	"github.com/Partizan-LERO/dsa/internal/ds/heap"
 	"github.com/Partizan-LERO/dsa/internal/ds/stack_arr"
 	"github.com/Partizan-LERO/dsa/internal/ds/trie"
 	"github.com/Partizan-LERO/dsa/internal/sorting"
@@ -190,6 +191,45 @@ func testHashMap() {
 	fmt.Println(h.Get("same"))
 }
 
+func testHeap() {
+	maxHeap := heap.MaxHeap{}
+
+	elements := []int{10, 20, 30, 15, 21, 22, 25, 35}
+	for _, v := range elements {
+		maxHeap.Insert(v)
+		fmt.Println(maxHeap)
+	}
+
+	for _, _ = range elements {
+		fmt.Println(maxHeap.ExtractMax())
+		fmt.Println(maxHeap)
+	}
+}
+
+func testHeapSort() {
+	elements := []int{10, 20, 30, 15, 21, 22, 25, 35}
+	sorted := sorting.HeapSort(elements)
+	fmt.Println(sorted)
+
+	sorted = sorting.HeapSortASC(elements)
+	fmt.Println(sorted)
+}
+
+func testMinHeap() {
+	minHeap := heap.MinHeap{}
+
+	elements := []int{10, 20, 30, 15, 21, 22, 25, 35}
+	for _, v := range elements {
+		minHeap.Insert(v)
+		fmt.Println(minHeap)
+	}
+
+	for _, _ = range elements {
+		fmt.Println(minHeap.ExtractMin())
+		fmt.Println(minHeap)
+	}
+}
+
 func main() {
-	testBST()
+	testHeapSort()
 }
