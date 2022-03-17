@@ -230,6 +230,11 @@ func testMinHeap() {
 	}
 }
 
+func testMergeSort() {
+	elements := []int{10, 20, 30, 15, 21, 22, 25, 35}
+	fmt.Println(sorting.MergeSort(elements))
+}
+
 func main() {
-	testHeapSort()
+	testMergeSort()
 }
